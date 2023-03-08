@@ -1,0 +1,34 @@
+
+# Mausrad scrollspeed
+exec --no-startup-id imwheel -b "4 5"
+
+# Lockscreen und Bildschirm timeout
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 333333
+exec --no-startup-id xset s 300
+exec --no-startup-id xset m 0 0
+
+# Hintergrundbild und automatische Farben
+
+# lässt dunst benachrichtigungen auf dem lockscreen erscheinen :/
+#exec --no-startup-id picom --experimental-backends
+
+#exec_always --no-startup-id /bin/bash ~/.config/i3/scripts/wallpapercolor.sh ~/.local/share/backgrounds/wallhaven-dpqjwj.jpg
+#exec_always --no-startup-id /bin/bash ~/.config/i3/scripts/wallpapercolor.sh ~/.local/share/backgrounds/wallhaven-mdzk51.jpg
+exec_always --no-startup-id /bin/bash ~/.config/i3/scripts/wallpapercolor.sh ~/.cache/background
+
+#exec --no-startup-id wal -R
+#exec_always --no-startup-id feh --bg-fill ~/.cache/background #wallpaper
+#exec_always wal --theme base16-gruvbox-hard
+
+# Top Bar
+# wird von ~/.config/i3/scripts/wallpapercolor.sh erledigt
+#exec_always --no-startup-id ~/.config/polybar/start-polybar.sh #top bar
+
+# Notification daemon
+exec_always --no-startup-id ~/.config/dunst/restart.sh #nofifications
+
+# Terminal Daemon
+#exec --no-startup-id urxvtd --fork --opendisplay
+
+# Firefox wayland
+exec --no-startup-id export MOZ_ENABLE_WAYLAND=0

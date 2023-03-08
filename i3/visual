@@ -1,0 +1,51 @@
+
+# Display arrangement
+exec_always --no-startup-id xrandr --output eDP-1 --auto --pos 0x0
+#exec_always --no-startup-id xrandr --output HDMI-1 --auto --pos 1920x0 --rotate normal
+#exec_always --no-startup-id xrandr --output DP-1 --auto --pos 3840x0 
+#
+#exec_always --no-startup-id xrandr --output DP-1-3 --auto --right-of eDP-1 --rotate normal
+#exec_always --no-startup-id xrandr --output DP-1-2 --auto --right-of DP-1-3 --rotate normal
+exec_always --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x180 --rotate normal --output HDMI-1 --off --output DP-1 --off --output HDMI-2 --off --output DP-1-1 --off --output DP-1-2 --mode 1920x1080 --pos 4480x180 --rotate normal --output DP-1-3 --mode 2560x1440 --pos 1920x0 --rotate normal
+
+#exec_always --no-startup-id xrandr --output eDP-1 --pos 0x840
+#exec_always --no-startup-id xrandr --output HDMI-1 --pos 1920x0 --auto --rotate left
+#exec_always --no-startup-id xrandr --output DP-1 --auto --pos 3000x870
+
+# float modifiers
+
+for_window [class="Pavucontrol"] floating enable
+for_window [class="gnome-calculator"] floating enable; move window to position 1300 100
+for_window [class="Nm-connection-editor"] floating enable; move window to position 1000 100
+for_window [class="zoom" title="zoom"] floating enable; move window to position 1000 100
+
+# colors
+
+#include ~/.cache/wal/colors-i3
+set_from_resource $foregorund i3wm.color7 #ffffff
+set_from_resource $bg i3wm.color0 #a0a0a0
+set_from_resource $bg-alt i3wm.color7 #a0a0a0
+#set_from_resource $prim i3wm.color1 #ffa0a0
+set_from_resource $prim i3wm.color6 #ffa0a0
+
+###Theming
+#
+# class                 border  backgr. text    indica. child_border
+client.focused          #ffffff $bg     #ffffff #ffffff #ffffff
+#client.focused          $bg     $bg     $fg     $bg-alt $bg-alt
+client.focused_inactive $bg-alt $bg	    $prim   $prim   $prim
+client.unfocused        $prim   $bg     $prim   $prim   $prim
+client.urgent           $prim   $prim   $fg     $prim   $prim
+client.placeholder      $bg     $bg     $bg     $bg     $bg-alt
+
+client.background       $bg
+
+
+# https://forum.endeavouros.com/t/qt-apps-override-default-window-border-style-defined-in-i3-config-file/32078/2
+for_window [class="^.*"] border pixel 2
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 20
+
+font pango:monospace 8
+
